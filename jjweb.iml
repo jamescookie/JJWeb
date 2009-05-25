@@ -61,6 +61,7 @@
       <sourceFolder url="file://$MODULE_DIR$/test/unit" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/test/reports" />
       <excludeFolder url="file://$MODULE_DIR$/web-app/WEB-INF/photos" />
+      <excludeFolder url="file://$MODULE_DIR$/web-app/thumbnails" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
