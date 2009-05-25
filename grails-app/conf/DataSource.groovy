@@ -26,7 +26,7 @@ environments {
 	production {
 		dataSource {
 			dbCreate = "update"
-			url = "jdbc:hsqldb:mem:prodDb"
+			url = "jdbc:hsqldb:mem:prod-jjweb-db"
 		}
 	}
 }
