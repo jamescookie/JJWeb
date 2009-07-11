@@ -3,76 +3,73 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="layout" content="main" />
         <title>Gallery</title>
+
+        <script type="text/javascript" src="<g:createLinkTo dir='js/jquery' file='jquery-1.2.3.pack.js'/>"></script>
+        <script type="text/javascript" src="<g:createLinkTo dir='js/jquery' file='jquery.jcarousel.pack.js'/>"></script>
+        <link rel="stylesheet" type="text/css" href="<g:createLinkTo dir='css' file='jquery.jcarousel.css'/>" />
+        <link rel="stylesheet" type="text/css" href="<g:createLinkTo dir='css/ie7' file='skin.css'/>" />
         <script type="text/javascript">
-        <!--
-            function openWin(url) {
-                var photoWindow = window.open(url, "Slideshow", "width=650,height=750,resizable=yes");
-                photoWindow.focus();
-            }
-        //-->
+            <!--
+                function openWin(url) {
+                    var photoWindow = window.open(url, "Slideshow", "width=650,height=750,resizable=yes");
+                    photoWindow.focus();
+                }
+
+                var mycarousel_itemList = [
+                    <g:each in="${gallery?.thumbs}" var="photo">
+                    {url: '${createLinkTo(dir: 'thumbnails/'+gallery?.name, file: photo.thumbnailName).encodeAsJavaScript()}', title: '${photo.displayName.encodeAsJavaScript()}', url2: '<g:createLink action="showPhoto" id="${gallery?.name}" params="[photo:photo.safeOriginalName]" />'},
+                    </g:each>
+                ];
+
+                function mycarousel_itemVisibleInCallback(carousel, item, i, state, evt) {
+                    var idx = carousel.index(i, mycarousel_itemList.length);
+                    carousel.add(i, mycarousel_getItemHTML(mycarousel_itemList[idx - 1]));
+                };
+
+                function mycarousel_itemVisibleOutCallback(carousel, item, i, state, evt) {
+                    carousel.remove(i);
+                };
+
+                function mycarousel_initCallback(carousel) {
+                    carousel.buttonNext.bind('click', function() {
+                        carousel.startAuto(0);
+                    });
+
+                    carousel.buttonPrev.bind('click', function() {
+                        carousel.startAuto(0);
+                    });
+
+                    carousel.clip.hover(function() {
+                        carousel.stopAuto();
+                    }, function() {
+                        carousel.startAuto();
+                    });
+                };
+
+                function mycarousel_getItemHTML(item) {
+                    var tmp = "'"+item.url2+"'"
+                    return '<a href="javascript:openWin('+tmp+');"><img src="' + item.url + '" alt="' + item.title + '" /></a>';
+                };
+
+                jQuery(document).ready(function() {
+                    jQuery('#mycarousel').jcarousel({
+                        wrap: 'circular',
+                        scroll: 1,
+                        auto: 2,
+                        initCallback: mycarousel_initCallback,
+                        itemVisibleInCallback: {onBeforeAnimation: mycarousel_itemVisibleInCallback},
+                        itemVisibleOutCallback: {onAfterAnimation: mycarousel_itemVisibleOutCallback}
+                    });
+                });
+            //-->
         </script>
     </head>
     <body>
-        <div class="body">
-            <h1>${gallery?.name}</h1>
-            <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-            </g:if>
-            <div class="dialog">
-                <g:def var="NUMBER_OF_PHOTOS_PER_ROW" value="${4}"/>
-                <g:def var="WIDTH_PER_COL" value="${100 / NUMBER_OF_PHOTOS_PER_ROW}"/>
-                <g:def var="i" value="${0}"/>
-                <g:def var="j" value="${0}"/>
-                <table width="100%">
-                    <tr>
-                        <g:each in="${gallery?.thumbs}" var="photo">
-                            <g:if test="${i % NUMBER_OF_PHOTOS_PER_ROW == 0 && i > 0}">
-                                </tr>
-                                <tr>
-                                <g:set var="j" value="${i - NUMBER_OF_PHOTOS_PER_ROW}"/>
-                                <g:while test="${j < i}">
-                                    <td style="text-align: center" width="${WIDTH_PER_COL}%">
-                                        ${gallery?.thumbs[j].displayName}
-                                    </td>
-                                    <g:set var="j" value="${j++}"/>
-                                </g:while>
-                                </tr>
-                                <tr>
-                                    <td colspan="${NUMBER_OF_PHOTOS_PER_ROW}">&nbsp;</td>
-                                </tr>
-                                <tr>
-                            </g:if>
-                            <td style="text-align: center" valign="middle" width="${WIDTH_PER_COL}%">
-                                <a href="javascript:openWin('<g:createLink action="showPhoto" id="${gallery?.name}" params="[photo:photo.safeOriginalName]" />');">
-                                    <img src="${createLinkTo(dir: 'thumbnails/'+gallery?.name, file: photo.thumbnailName)}" border="0" alt="${photo.displayName}"/>
-                                </a>
-                            </td>
-                            <g:set var="i" value="${i++}"/>
-                        </g:each>
-                        <g:if test="${i % NUMBER_OF_PHOTOS_PER_ROW != 0}">
-                            <td colspan="${NUMBER_OF_PHOTOS_PER_ROW - (i % NUMBER_OF_PHOTOS_PER_ROW)}">&nbsp;</td>
-                        </g:if>
-                    </tr>
-                    <tr>
-                        <g:if test="${i > 0}">
-                            <g:set var="j" value="${i - (i % NUMBER_OF_PHOTOS_PER_ROW)}"/>
-                            <g:if test="${j == i}">
-                                <g:set var="j" value="${i - NUMBER_OF_PHOTOS_PER_ROW}"/>
-                            </g:if>
-                            <g:while test="${j < i}">
-                                <td style="text-align: center" width="${WIDTH_PER_COL}%">
-                                    ${gallery?.thumbs[j].displayName}
-                                </td>
-                                <g:set var="j" value="${j++}"/>
-                            </g:while>
-                            <g:if test="${i % NUMBER_OF_PHOTOS_PER_ROW != 0}">
-                                <td colspan="${NUMBER_OF_PHOTOS_PER_ROW - (i % NUMBER_OF_PHOTOS_PER_ROW)}">&nbsp;</td>
-                            </g:if>
-                        </g:if>
-                    </tr>
-                </table>
-            </div>
-            ${gallery?.additionalHTML}
+        <h1 class="galleryHeading">${gallery?.name}</h1>
+        <div class="gallery">
+            <ul id="mycarousel" class="jcarousel-skin-ie7">
+              <!-- The content will be dynamically loaded in here -->
+            </ul>
         </div>
     </body>
 </html>
