@@ -13,10 +13,6 @@
         </script>
     </head>
     <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLinkTo(dir:'/')}">Home</a></span>
-            <span class="menuButton"><g:link class="list" action="list">Gallery List</g:link></span>
-        </div>
         <div class="body">
             <h1>${gallery?.name}</h1>
             <g:if test="${flash.message}">
