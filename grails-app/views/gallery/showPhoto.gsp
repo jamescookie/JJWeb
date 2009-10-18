@@ -9,7 +9,7 @@
     <body style="background-color: #D4D0C8">
         <div class="jcarousel-skin-ie7">
             <div class="jcarousel-container" style="border:none;">
-                <table class="maxDimensions" border="1">
+                <table class="maxDimensions">
                     <tr valign="top">
                         <td style="text-align:center" colspan="3"><h1>${gallery}</h1></td>
                     </tr>
