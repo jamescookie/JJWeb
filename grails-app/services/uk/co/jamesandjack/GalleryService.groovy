@@ -2,23 +2,38 @@ package uk.co.jamesandjack
 
 import javax.servlet.ServletContext
 import org.springframework.web.context.ServletContextAware
+import groovy.xml.MarkupBuilder
 
 class GalleryService implements ServletContextAware {
     def servletContext
+    def SEPARATOR = '|'
 
     void setServletContext(ServletContext servletContext) {this.servletContext = servletContext}
 
     Gallery findGallery(id) {
         id = URLDecoder.decode(id)
+        id = id.replace(SEPARATOR, '/')
         def photoPath = servletContext.getRealPath("/WEB-INF/photos/$id")
         def thumbnailPath = servletContext.getRealPath("/thumbnails/$id")
         return new Gallery(photoPath, thumbnailPath, id)
     }
 
-    List findGalleries() {
-        def galleries = []
-        new File(servletContext.getRealPath("/WEB-INF/photos")).eachDir {galleries << it.name}
-        return galleries
+    def findGalleries() {
+        def writer = new StringWriter()
+        def xml = new MarkupBuilder(writer)
+        xml.galleries(name: "Galleries") {
+            recurseDirectories(new File(servletContext.getRealPath("/WEB-INF/photos")), xml, '')
+        }
+        return writer.toString()
+    }
+
+    def recurseDirectories(file, xml, pathSoFar) {
+        file.eachDir {
+            def subFile = it
+            xml.gallery(name: subFile.name, id: pathSoFar + subFile.name) {
+                recurseDirectories(subFile, xml, pathSoFar + subFile.name + SEPARATOR)
+            }
+        }
     }
 
 }

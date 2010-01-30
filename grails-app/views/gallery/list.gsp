@@ -3,6 +3,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="layout" content="main" />
         <title>Gallery List</title>
+        <resource:treeView />
+        <style type="text/css">
+        td.ygtvcell {
+            vertical-align: middle;
+            font-size: 15px;
+            padding: 2px;
+        }
+        </style>
     </head>
     <body>
         <div class="nav">
@@ -14,15 +22,7 @@
             <div class="message">${flash.message}</div>
             </g:if>
             <div class="list">
-                <table>
-                    <tbody>
-                    <g:each in="${galleryList}" status="i" var="gallery">
-                        <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
-                            <td><g:link action="show" id="${gallery}">${gallery?.encodeAsHTML()}</g:link></td>
-                        </tr>
-                    </g:each>
-                    </tbody>
-                </table>
+                <jjweb:treeView xml="${galleryList}" onLabelClick="if(node.children.length == 0) document.location.href = '${createLinkTo(dir: 'gallery/show')}/' + escape(id);"/>
             </div>
             <div>&nbsp;</div>
             <div>
