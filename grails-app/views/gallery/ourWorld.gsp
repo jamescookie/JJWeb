@@ -7,7 +7,7 @@
       .popupPhoto { margin-top:5px; }
       .popupFooter { margin-top:10px; font-size:10pt; }
     </style>
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=${key}" type="text/javascript"></script>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=${mapkey}" type="text/javascript"></script>
     <script type="text/javascript">
     //<![CDATA[
     var smallIcon = new GIcon();

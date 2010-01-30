@@ -1,4 +1,5 @@
 grails.war.resources = { stagingDir ->
+  delete(dir:"${stagingDir}/thumbnails")
   delete(dir:"${stagingDir}/WEB-INF/photos")
 }
 grails.project.class.dir = "target/classes"
