@@ -96,23 +96,29 @@
 
             addMarker(50.37869626627569, -4.12961483001709, "Birth place", smallPinkIcon);
 
-            addMarker(51.37921079429734, -0.18342554569244385, "Birth place", smallLightBlueIcon);
+            addMarker(51.37921079429734, -0.18342554569244385, "Boys Birth place", smallLightBlueIcon);
 
             addMarker(51.368230493968035, -0.13124048709869385, "Current abode<br/>Oct 2004 - ?", smallIcon);
             addMarker(51.417689690776456, -0.19297689199447632, "Our first house together<br/>Mar 2004 - Oct 2004", smallIcon);
-            addMarker(42.54391166083557, 1.7337799072265625, "Pas de la Casa<br/>Andorra", bigIcon, "andorra.jpg");
-            addMarker(28.41623925726764, -16.543800830841064, "Puerto de la Cruz<br/>Tenerife", bigIcon);
-            addMarker(28.868698520506832, -13.84177565574646, "Playa Blanca<br/>Lanzarote", bigIcon);
-            addMarker(36.13223385427301, -5.35034716129303, "Gibraltar", bigIcon, "gibraltar.jpg");
-            addMarker(33.606184465997615, -7.631635665893555, "Casablanca<br/>Morocco", bigIcon, "casablanca.jpg");
-            addMarker(34.69744912172198, 33.09425354003906, "Limassol<br/>Cyprus", bigIcon, "cyprus.jpg");
-            addMarker(35.17563242422206, 33.358097076416016, "Nicosia<br/>Cyprus (Turkish Side)", bigGreenIcon, "nicosia.jpg");
-            addMarker(21.27867751387073, -157.83276557922363, "Waikiki beach<br/>Oahu<br/>Hawaii", bigIcon, "oahu.jpg");
-            addMarker(19.25888900386699, -155.21364212036133, "National Park<br/>Big Island<br/>Hawaii", bigGreenIcon, "hawaii.jpg");
-            addMarker(13.177473982273083, -59.635189175605774, "Barbados", bigIcon, "barbados.jpg");
-            addMarker(37.72857010460268, 20.87325096130371, "Zante", bigIcon, "zante.jpg");
-            addMarker(49.28454768542656, -123.11205804347992, "Vancouver<br/>Canada", bigGreenIcon, "vancouver.jpg");
-            addMarker(50.116780711007785, -122.94593811035156, "Whistler<br/>Canada", bigIcon, "whistler.jpg");
+
+            addMarker(28.41623925726764, -16.543800830841064, "Puerto de la Cruz<br/>Tenerife<br/>Nov 2003", bigIcon);
+            addMarker(42.54391166083557, 1.7337799072265625, "Pas de la Casa<br/>Andorra<br/>Apr 2004", bigIcon, "andorra.jpg");
+            addMarker(13.177473982273083, -59.635189175605774, "Barbados<br/>June 2004", bigIcon, "barbados.jpg");
+            addMarker(37.72857010460268, 20.87325096130371, "Zante<br/>Oct 2004", bigIcon, "zante.jpg");
+            addMarker(33.606184465997615, -7.631635665893555, "Casablanca<br/>Morocco<br/>June 2005", bigIcon, "casablanca.jpg");
+            addMarker(34.69744912172198, 33.09425354003906, "Limassol<br/>Cyprus<br/>Nov 2005", bigIcon, "cyprus.jpg");
+            addMarker(35.17563242422206, 33.358097076416016, "Nicosia<br/>Cyprus (Turkish Side)<br/>Nov 2005", bigGreenIcon, "nicosia.jpg");
+            addMarker(50.116780711007785, -122.94593811035156, "Whistler<br/>Canada<br/>Feb 2005", bigIcon, "whistler.jpg");
+            addMarker(21.27867751387073, -157.83276557922363, "Waikiki beach<br/>Oahu<br/>Hawaii<br/>Feb 2005", bigIcon, "oahu.jpg");
+            addMarker(19.25888900386699, -155.21364212036133, "National Park<br/>Big Island<br/>Hawaii<br/>Feb 2005", bigGreenIcon, "hawaii.jpg");
+            addMarker(49.28454768542656, -123.11205804347992, "Vancouver<br/>Canada<br/>Feb 2005", bigGreenIcon, "vancouver.jpg");
+            addMarker(36.13223385427301, -5.35034716129303, "Gibraltar<br/>Jan 2006", bigIcon, "gibraltar.jpg");
+            addMarker(28.868698520506832, -13.84177565574646, "Playa Blanca<br/>Lanzarote<br/>Feb 2006", bigIcon);
+            addMarker(48.95165886333004, -0.7091975212097168, "Chateau Walsh<br/>France<br/>Sept 2006", bigIcon, "france2006.jpg");
+            addMarker(5.549670446039707, 73.46789360046387, "Kuredu<br/>Maldives<br/>May 2007", bigIcon, "maldives.jpg");
+            addMarker(37.024792314236926, -8.96360993385315, "Algarve<br/>Sept 2008", bigIcon, "algarve.jpg");
+            addMarker(28.040508501032736, 34.43968176841736, "Sharm el Sheikh<br/>Egypt<br/>Oct 2009", bigIcon, "egypt.jpg");
+            addMarker(29.975289962810454, 31.13875687122345, "Cairo<br/>Egypt<br/>Oct 2009", bigGreenIcon, "cairo.jpg");
         }
     }
 
