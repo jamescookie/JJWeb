@@ -28,7 +28,10 @@ class GalleryService implements ServletContextAware {
     }
 
     def recurseDirectories(file, xml, pathSoFar) {
-        file.eachDir {
+        def files = []
+        file.eachDir {files << it}
+        files.sort {a,b-> a.name <=> b.name}
+        files.each {
             def subFile = it
             xml.gallery(name: subFile.name, id: pathSoFar + subFile.name) {
                 recurseDirectories(subFile, xml, pathSoFar + subFile.name + SEPARATOR)
