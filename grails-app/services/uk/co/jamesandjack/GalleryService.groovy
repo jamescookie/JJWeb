@@ -12,9 +12,9 @@ class GalleryService implements ServletContextAware {
 
     Gallery findGallery(id) {
         id = URLDecoder.decode(id)
-        id = id.replace(SEPARATOR, '/')
-        def photoPath = servletContext.getRealPath("/WEB-INF/photos/$id")
-        def thumbnailPath = servletContext.getRealPath("/thumbnails/$id")
+        def replaced = id.replace(SEPARATOR, '/')
+        def photoPath = servletContext.getRealPath("/WEB-INF/photos/$replaced")
+        def thumbnailPath = servletContext.getRealPath("/thumbnails/$replaced")
         return new Gallery(photoPath, thumbnailPath, id)
     }
 

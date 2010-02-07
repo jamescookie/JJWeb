@@ -48,7 +48,7 @@
                             </g:if>
                             <td style="text-align: center" valign="middle" width="${WIDTH_PER_COL}%">
                                 <a href="javascript:openWin('<g:createLink action="showPhoto" id="${gallery?.name}" params="[photo:photo.safeOriginalName]" />');">
-                                    <img src="${createLinkTo(dir: 'thumbnails/'+gallery?.name, file: photo.thumbnailName)}" border="0" alt="${photo.displayName}"/>
+                                    <img src="${createLinkTo(dir: 'thumbnails/'+gallery?.name?.replace('|', '/'), file: photo.thumbnailName)}" border="0" alt="${photo.displayName}"/>
                                 </a>
                             </td>
                             <g:set var="i" value="${i++}"/>
